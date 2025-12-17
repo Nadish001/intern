@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Note</title>
+    <style>
+        body {
+            font-family: "Segoe UI", Roboto, Arial, sans-serif;
+            background: #f5f6fa;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 700px;
+            margin: auto;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 22px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+        }
+        h2 {
+            font-weight: 500;
+            margin-bottom: 14px;
+        }
+        .notes {
+            white-space: pre-wrap;
+            font-size: 16px;
+            color: #333;
+        }
+        .actions {
+            margin-top: 20px;
+        }
+        .actions a {
+            margin-right: 12px;
+            text-decoration: none;
+            color: #555;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h2>{{ todo.subject }}</h2>
+            <div class="notes">{{ todo.notes }}</div>
+
+            <div class="actions">
+                <a href="/edit/{{ todo.id }}/">Edit</a>
+                <a href="/">Back</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

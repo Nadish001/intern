@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Note</title>
+    <style>
+        body {
+            font-family: "Segoe UI", Roboto, Arial, sans-serif;
+            background: #f5f6fa;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 700px;
+            margin: auto;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+        }
+        input, textarea {
+            width: 100%;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            margin-bottom: 16px;
+            font-family: inherit;
+        }
+        input {
+            font-size: 20px;
+            font-weight: 500;
+        }
+        textarea {
+            min-height: 200px;
+            resize: none;
+        }
+        button {
+            background: #ffcc00;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 12px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+        .back {
+            display: inline-block;
+            margin-top: 16px;
+            text-decoration: none;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <form method="post">
+                {% csrf_token %}
+                <input type="text" name="subject" placeholder="Title"
+                       value="{{ todo.subject|default:'' }}">
+
+                <textarea name="notes" placeholder="Write your note here...">{{ todo.notes|default:'' }}</textarea>
+
+                <button type="submit">Save</button>
+            </form>
+            <a class="back" href="/">← Back</a>
+        </div>
+    </div>
+</body>
+</html>
